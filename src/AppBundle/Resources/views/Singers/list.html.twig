@@ -1,0 +1,39 @@
+{% extends 'AppBundle::layout.html.twig' %}
+
+{% block content %}
+    <form method="post" >
+        <div class="main-body">
+            <div>
+                <a class="create-action" href="{{ path('singer-create') }}">Create new Singer</a>
+            </div>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Singer discs</th>
+                        <th scope="col">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for singer in singers %}
+                        <tr>
+                            <td>
+                                {{ singer.name }}
+
+                            </td>
+                            <td>
+                                <a href="{{ path('discs_list',{'sId':singer.id}) }}">discs link</a>
+                            </td>
+                            <td>
+                                <a href="{{ path('singer_edit',{'id':singer.id}) }}">edit</a>
+                                <a href="{{ path('singer_delete',{'id':singer.id}) }}">delete</a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </form>
+
+{% endblock %}
+

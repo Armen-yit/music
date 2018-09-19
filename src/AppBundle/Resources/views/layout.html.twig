@@ -1,0 +1,18 @@
+{% extends '::base.html.twig' %}
+
+
+
+{% block body %}
+    <div class="main-content">
+        {% block menu %}
+            <nav class="navbar navbar-expand-lg navbar-light bg-light menu">
+                <a class="navbar-brand" href="{{ path('singers_list') }}">Singers</a>
+                <a class="navbar-brand" href="{{ path('discs_list') }}">Discs</a>
+            </nav>
+        {% endblock %}
+        <div class="content">
+            {% block content %} {% endblock %}
+        </div>
+
+    </div>
+{% endblock %}

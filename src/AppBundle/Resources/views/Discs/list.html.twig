@@ -1,0 +1,35 @@
+{% extends 'AppBundle::layout.html.twig' %}
+
+
+{% block content %}
+<form method="post" >
+    <div class="main-body">
+        <div>
+            <a class="create-action" href="{{ path('disc-create') }}">Create new Disc</a>
+        </div>
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Singer</th>
+                <th scope="col">Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+                {% for disc in discs %}
+                    <tr>
+                        <td>{{ disc.name }}</td>
+                        <td>{{ disc.singers.name }}</td>
+                        <td>
+                            <a href="{{ path('disc_edit',{'id':disc.id}) }}">edit</a>
+                            <a href="{{ path('disc_delete',{'id':disc.id}) }}">delete</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</form>
+
+{% endblock %}
+
